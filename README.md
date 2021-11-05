@@ -1,4 +1,4 @@
-# infoscan by
+# infoscan by 华东360安服团队
 
 ## 项目说明
 
