@@ -93,6 +93,8 @@ infoscan  -i  192.168.0.0/24  -l ip.txt  -uf  url.txt -t1000   可以组合各�
 
 ## 感谢！
 
+棱角团队 
+
 https://github.com/EdgeSecurityTeam/EHole
 
 https://github.com/shadow1ng/fscan
