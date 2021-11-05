@@ -1,0 +1,20 @@
+package cmd
+
+import (
+	"github.com/redtoolskobe/scaninfo/options"
+	"github.com/redtoolskobe/mamba/server/utils"
+)
+
+func Run(hosts []string, urls []string, name string, scantype string) {
+	var Info options.HostInfo
+	option := options.FscanOptions
+	option.Urls = urls
+	Info.Ports = options.DefaultPorts
+	Info.Userdict = options.Userdict
+	Info.Timeout = 2
+	Info.Hosts = hosts
+	Info.Scantype = scantype
+	Info.TaskName = name
+	Info.TaskID = utils.NewTaskID()
+	return
+}

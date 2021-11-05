@@ -1,0 +1,5 @@
+.idea
+release
+.DS_Store
+./cmd/demo/*
+*.txt

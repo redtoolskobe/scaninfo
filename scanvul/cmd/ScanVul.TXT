@@ -1,0 +1,111 @@
+package cmd
+
+import (
+	"errors"
+	"fmt"
+	"reflect"
+	"strconv"
+	"sync"
+
+	"github.com/redtoolskobe/scaninfo/Plugins"
+	"github.com/redtoolskobe/scaninfo/port/pkg/output"
+
+	"github.com/redtoolskobe/scaninfo/scanvul/common"
+
+	"github.com/redtoolskobe/scaninfo/options"
+)
+
+type ScanEngine struct {
+	ServiceList []string         //要扫描的服务列表
+	ScanService string           //扫描的服务类型
+	Options     *options.ScanVul //扫描的一些选项
+}
+
+func NewScanEngine(options *options.ScanVul) *ScanEngine {
+	return &ScanEngine{
+		ServiceList: common.ServiceList,
+		Options:     options,
+		ScanService: "all",
+	}
+}
+
+func (s *ScanEngine) Scan() {
+	var ch = make(chan struct{}, 1000)
+	var wg = sync.WaitGroup{}
+	for _, service := range s.Options.ServicePortList {
+		s.Options.Info.Ports = strconv.FormatUint(service.Port, 10)
+		s.Options.Info.Host = service.Ip
+		s.Options.Info.Url = service.Info.Url
+		s.ScanService = "mysql"
+		if s.ScanService == "all" {
+			switch {
+			case service.Info.Service == "smb":
+				//AddScan(info.Ports, info, ch, &wg)  //smb
+				s.AddScan("1000001", s.Options.Info, ch, &wg) //ms17010
+				s.AddScan("1000002", s.Options.Info, ch, &wg) //smbghost
+			case service.Info.Url != "":
+				s.AddScan("1000003", s.Options.Info, ch, &wg) //http
+			case IsContain(s.ServiceList, service.Info.Service):
+				s.AddScan(service.Info.Service, s.Options.Info, ch, &wg) //plugins scan
+			default:
+			}
+		} else {
+			s.AddScan(s.ScanService, s.Options.Info, ch, &wg)
+		}
+	}
+	wg.Wait()
+	common.LogWG.Wait()
+
+}
+
+func (s *ScanEngine) AddScan(service string, info options.HostInfo, ch chan struct{}, wg *sync.WaitGroup) {
+	wg.Add(1)
+	go func() {
+		scanfun(Plugins.PluginList, service, &info)
+		wg.Done()
+		<-ch
+		fmt.Println("一个扫描任务结束")
+	}()
+	ch <- struct{}{}
+}
+
+func scanfun(m map[string]interface{}, name string, infos ...interface{}) (result []reflect.Value, err error) {
+	f := reflect.ValueOf(m[name])
+	if len(infos) != f.Type().NumIn() {
+		err = errors.New("The number of infos is not adapted ")
+		fmt.Println(err.Error())
+		return result, nil
+	}
+	in := make([]reflect.Value, len(infos))
+	for k, info := range infos {
+		in[k] = reflect.ValueOf(info)
+	}
+	result = f.Call(in)
+	return result, nil
+}
+
+func IsContain(items []string, item string) bool {
+	for _, eachItem := range items {
+		if eachItem == item {
+			return true
+		}
+	}
+	return false
+}
+
+func  GetTaskList(servicelist []*output.ResultEvent) map[string][]options.HostInfo {
+	task := map[string][]options.HostInfo{}
+	for _, service := range servicelist {
+		switch {
+		case service.Port == 445:
+			task["1000001"] = append(task["1000001"], options.HostInfo{Host: service.Ip, Ports: strconv.FormatUint(service.Port, 10)})
+			task["1000002"] = append(task["1000002"], options.HostInfo{Host: service.Ip, Ports: strconv.FormatUint(service.Port, 10)})
+		case service.Info.Url != "":
+			task["1000003"] = append(task["1000003"], options.HostInfo{Host: service.Ip, Ports: strconv.FormatUint(service.Port, 10), Url: service.Info.Url})
+		case IsContain(common.ServiceList, service.Info.Service):
+			task[service.Info.Service] = append(task[service.Info.Service], options.HostInfo{Host: service.Ip, Ports: strconv.FormatUint(service.Port, 10)})
+		default:
+		}
+	}
+	return task
+}
