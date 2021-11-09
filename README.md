@@ -1,4 +1,4 @@
-# infoscan by 华东360安服团队
+# scaninfo by 华东360安服团队
 
 
 ## 注意的点
