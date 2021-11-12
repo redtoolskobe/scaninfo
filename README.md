@@ -1,6 +1,11 @@
 # scaninfo by 华东360安服团队
 
 
+开源、轻量、快速、跨平台 的红队内外网打点扫描器
+
+<a href="https://github.com/veo/vscan/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"></a>
+[![GitHub release](https://img.shields.io/github/release/veo/vscan.svg)](https://github.com/veo/vscan/releases/latest)
+
 ## 注意的点
 
 - 漏洞扫描的时候有时候最后几个任务会卡住，是因为ftp爆破模块，这个fscan也一样目前没有好的解决办法，后续更新.先阶段可以-eq 21跳过ftp，或者control+c 主动停止不影响结果保存。
