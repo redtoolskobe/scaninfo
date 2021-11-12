@@ -16,7 +16,7 @@
 
 >  为何有这个项目
 
-在渗透测试的端口扫描阶段，相信很多人遇到的问题是nmap太慢，masscan不准确。难以在速度与准确度之间寻找一个平衡。 其实有个工具不错就是[TXPortMap](https://github.com/4dogs-cn/TXPortMap)。但是没有进度条。
+在渗透测试的端口扫描阶段，相信很多人遇到的问题是nmap太慢，masscan不准确。难以在速度与准确度之间寻找一个平衡。 其实有个工具不错就是[TXPortMap](https://github.com/4dogs-cn/TXPortMap)。但是没有进度条当大量扫描的时候结果处理也太友好。
 
 在内网这块[fscan](https://github.com/shadow1ng/fscan)算是一款很优秀的工具但也有一些问题，如端口扫描不支持服务识别等。
 
