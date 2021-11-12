@@ -39,15 +39,15 @@
 > 常见的参数
 
 ```shell
-infoscan -uf  url.txt -m  webfinger  web指纹识别
+scaninfo -uf  url.txt -m  webfinger  web指纹识别
 ```
 
 ```shell
-infoscan  -i  192.168.0.0/24  -p  1-65535  -eq 53  -m port 端口扫描
+scaninfo  -i  192.168.0.0/24  -p  1-65535  -eq 53  -m port 端口扫描
 ```
 
 ```shell
-infoscan  -i  192.168.0.0/24  -l ip.txt  -uf  url.txt -t1000   可以组合各种目标ip段ip文件url文件
+scaninfo  -i  192.168.0.0/24  -l ip.txt  -uf  url.txt -t1000   可以组合各种目标ip段ip文件url文件 
 ```
 
 ## 报告
