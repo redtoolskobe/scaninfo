@@ -2,7 +2,7 @@
 
 开源、轻量、快速、跨平台 的红队内外网打点扫描器
 
-![](https://img.shields.io/badge/ReaTeam-%E6%AD%A6%E5%99%A8%E5%BA%93-red) ![](https://img.shields.io/badge/license-GPL--3.0-orange) ![](https://img.shields.io/badge/version-1.1.0-brightgreen) ![](https://img.shields.io/badge/author-kb24%20%E6%B8%A9%E9%85%92-blueviolet)
+![](https://img.shields.io/badge/ReaTeam-%E6%AD%A6%E5%99%A8%E5%BA%93-red) ![](https://img.shields.io/badge/license-GPL--3.0-orange) ![](https://img.shields.io/badge/version-1.1.0-brightgreen) ![](https://img.shields.io/badge/author-kb24-blueviolet)
 
 
 ## 注意的点
