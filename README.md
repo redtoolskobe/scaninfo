@@ -1,7 +1,8 @@
-# scaninfo by 华东360安服团队
-
+<h1 align="center">scaninfo by 华东360安服团队</h1>
 
 开源、轻量、快速、跨平台 的红队内外网打点扫描器
+
+![](https://img.shields.io/badge/ReaTeam-%E6%AD%A6%E5%99%A8%E5%BA%93-red) ![](https://img.shields.io/badge/license-GPL--3.0-orange) ![](https://img.shields.io/badge/version-1.0.1-brightgreen) ![](https://img.shields.io/badge/author-wintrysec%20%E6%B8%A9%E9%85%92-blueviolet)
 
 <a href="https://github.com/redtoolskobe/scaninfo/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"></a>
 [![GitHub release](https://img.shields.io/github/release/veo/vscan.svg)](https://github.com/redtoolskobe/scaninfo/releases/tag/v1.1.0)
