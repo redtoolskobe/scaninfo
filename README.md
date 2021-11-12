@@ -4,7 +4,7 @@
 开源、轻量、快速、跨平台 的红队内外网打点扫描器
 
 <a href="https://github.com/veo/vscan/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"></a>
-[![GitHub release](https://img.shields.io/github/release/veo/vscan.svg)](https://github.com/veo/vscan/releases/latest)
+[![GitHub release](https://img.shields.io/github/release/veo/vscan.svg)](https://github.com/redtoolskobe/scaninfo/releases/tag/v1.1.0)
 
 ## 注意的点
 
