@@ -23,6 +23,7 @@ func init() {
 	}
 	newHeader.Println("scan info  v1.1.0")
 	pterm.FgRed.Println("本工具只做探测没有提供利用方式只供学习,请遵守国家网络安全.")
+	pterm.FgRed.Println("如果网络不好的情况下建议-n改成200.")
 	pterm.FgRed.Println("扫描的时候可以手动停止结果会自动保存,-h查看使用说明-show查看支持的模块.")
 	pterm.FgRed.Println("漏洞和指纹扫描的时候可能最后几个任务很慢,是因为弱口令爆破,可以手动control+c结束.")
 	pterm.Warning.Println("默认使用TOP100端口,可以-p指定端口或者使用参数-t1000扫TOP1000.")
