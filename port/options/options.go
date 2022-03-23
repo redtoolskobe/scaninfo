@@ -13,7 +13,7 @@ type Options struct {
 	ExcPorts   []string // 待排除端口
 	ExcIps     []string // 待排除Ip
 	IpFile     string
-	Nocolor    bool //彩色打印
+	Nocolor    bool 
 	Json       bool
 	Tracelog   string  //请求日志
 	Rstfile    string  //文件保存
