@@ -39,7 +39,6 @@ func ICMPRun(hostslist []string, Ping bool) []string {
 	}()
 
 	if Ping == true {
-		//使用ping探测
 		RunPing(hostslist, chanHosts)
 	} else {
 		//优先尝试监听本地icmp,批量探测
@@ -55,7 +54,6 @@ func ICMPRun(hostslist []string, Ping bool) []string {
 			} else {
 				pterm.Warning.Println("使用ICMP扫描请确认是否为sudo权限,已切换成PING扫描")
 				//使用ping探测
-				//global.GVA_LOG_fscan.Warn(fmt.Sprintf("使用ICMP扫描请确认是否为sudo权限,已切换成PING扫描"), zap.String("scan", "FSCAN"))
 				RunPing(hostslist, chanHosts)
 			}
 		}
