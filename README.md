@@ -103,6 +103,14 @@ scaninfo  -i  192.168.0.0/24  -l ip.txt  -uf  url.txt -t1000   可以组合各�
 
 
 
+
+
+# 404StarLink 2.0 - Galaxy
+![](https://github.com/knownsec/404StarLink-Project/raw/master/logo.png)
+
+scaninfo 是 404Team [星链计划2.0](https://github.com/knownsec/404StarLink2.0-Galaxy) 中的一环，如果对fscan 有任何疑问又或是想要找小伙伴交流，可以参考星链计划的加群方式。
+
+
 ## 感谢！
 
 棱角团队 
@@ -112,13 +120,6 @@ https://github.com/EdgeSecurityTeam/EHole
 https://github.com/shadow1ng/fscan
 
 https://github.com/4dogs-cn/TXPortMap
-
-
-## 404星链计划
-
-<img src lazysrc="https://github.com/knownsec/404StarLink-Project/raw/master/logo.png" width="30%">
-
-现已加入 [404星链计划](https://github.com/knownsec/404StarLink)
 
 ## 最后
 
